@@ -189,11 +189,3 @@ int main(void)
     AdcHandleGlobal();
   }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
