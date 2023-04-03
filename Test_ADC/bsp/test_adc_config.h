@@ -34,6 +34,7 @@
 #define PERIPH_USART2    CRM_USART2_PERIPH_CLOCK
 #define PERIPH_DMA1      CRM_DMA1_PERIPH_CLOCK
 #define PERIPH_TIMER_17  CRM_TMR17_PERIPH_CLOCK
+#define PERIPH_ADC1      CRM_ADC1_PERIPH_CLOCK
 
 /*
 * NVIC_PRIORITY_GROUP_4; it is no priority_sub
@@ -43,6 +44,7 @@
 #define NVIC_PRIO_PREEMPT_USART2_TX_DMA_COMPLETE 4
 #define NVIC_PRIO_PREEMPT_USART2_RX_INT 4
 #define NVIC_PRIO_PREEMPT_IR_RECEIVE_TIMER17 0
+#define NVIC_PRIO_PREEMPT_ADC_LUX_DMA_COMPLETE 1
 
 /*
 * GPIOA Map
@@ -55,6 +57,8 @@
 #define GPIOA_PIN3_USART2_RX              GPIO_PINS_3
 #define GPIOA_MUX_USART2_RX               GPIO_MUX_1
 #define GPIOA_USART2_RX                   GPIOA
+#define GPIOA_PIN4_ANALOG_LUX             GPIO_PINS_4
+#define GPIOA_ADC_LUX                     GPIOA
 #define GPIOA_PIN7_IR_RX                  GPIO_PINS_7
 #define GPIOA_MUX_IR_RX                   GPIO_MUX_5
 #define GPIOA_IR_RX                       GPIOA
@@ -92,6 +96,16 @@
 * IR configure
 */
 #define IR_PROTOCOL (NEC)
+
+/*
+* ADC configure
+*/
+#define ADC_DMA_MODE_ENABLE
+#define ADC_TRIGGER_SOFTWARE
+#define ADC_CLOCK_DIV_20MHZ CRM_ADC_DIV_6
+#define ADC_CHANNEL_VREF ADC_CHANNEL_17
+#define ADC_CHANNEL_LUX ADC_CHANNEL_4
+#define ADC_CHANNEL_LENGTH 2
 
 //----------------------------------------------------------------------------------
 // enum; struct; union; typedef;

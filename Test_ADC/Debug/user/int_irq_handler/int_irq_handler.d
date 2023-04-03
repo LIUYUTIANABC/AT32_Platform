@@ -35,20 +35,24 @@ user/int_irq_handler/int_irq_handler.o: \
  ../user/int_irq_handler/..\..\bsp\.\systick\systick.h \
  ../user/int_irq_handler/..\..\bsp\.\systick\..\test_adc_config.h \
  ../user/int_irq_handler/..\..\bsp\.\led_base\led_base.h \
- ../user/int_irq_handler/..\..\bsp\.\led_base\..\test_adc_config.h \
+ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h \
  ../user/int_irq_handler/..\..\bsp\.\key_board_base\key_board_base.h \
- ../user/int_irq_handler/..\..\bsp\.\key_board_base\..\test_adc_config.h \
+ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h \
  ../user/int_irq_handler/..\..\bsp\.\usart\usart.h \
  ../user/int_irq_handler/..\..\bsp\.\usart\..\test_adc_config.h \
  ../user/int_irq_handler/..\..\bsp\.\timestamp\timestamp.h \
- ../user/int_irq_handler/..\..\bsp\.\timestamp\..\test_adc_config.h \
+ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h \
  ../user/int_irq_handler/..\..\bsp\.\ir\ir_base.h \
  ../user/int_irq_handler/..\..\bsp\.\ir\..\test_adc_config.h \
+ ../user/int_irq_handler/..\..\bsp\.\adc\adc_base.h \
+ ../user/int_irq_handler/..\..\bsp\.\adc\..\test_adc_config.h \
  ../user/int_irq_handler/..\.\int_irq_handler\int_irq_handler.h \
  ../user/int_irq_handler/..\.\usart2_handler\usart2_handler.h \
  ../user/int_irq_handler/..\.\usart2_handler\..\system_defines.h \
  ../user/int_irq_handler/..\.\ir_handler\ir_handler.h \
- ../user/int_irq_handler/..\.\ir_handler\..\system_defines.h
+ ../user/int_irq_handler/..\.\ir_handler\..\system_defines.h \
+ ../user/int_irq_handler/..\.\adc_handler\adc_handler.h \
+ ../user/int_irq_handler/..\.\adc_handler\..\system_defines.h
 ../user/int_irq_handler/int_irq_handler.h:
 ../user/int_irq_handler/..\system_defines.h:
 ../user/int_irq_handler/..\..\bsp\test_adc_board.h:
@@ -84,17 +88,21 @@ user/int_irq_handler/int_irq_handler.o: \
 ../user/int_irq_handler/..\..\bsp\.\systick\systick.h:
 ../user/int_irq_handler/..\..\bsp\.\systick\..\test_adc_config.h:
 ../user/int_irq_handler/..\..\bsp\.\led_base\led_base.h:
-../user/int_irq_handler/..\..\bsp\.\led_base\..\test_adc_config.h:
+c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/int_irq_handler/..\..\bsp\.\key_board_base\key_board_base.h:
-../user/int_irq_handler/..\..\bsp\.\key_board_base\..\test_adc_config.h:
+c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/int_irq_handler/..\..\bsp\.\usart\usart.h:
 ../user/int_irq_handler/..\..\bsp\.\usart\..\test_adc_config.h:
 ../user/int_irq_handler/..\..\bsp\.\timestamp\timestamp.h:
-../user/int_irq_handler/..\..\bsp\.\timestamp\..\test_adc_config.h:
+c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/int_irq_handler/..\..\bsp\.\ir\ir_base.h:
 ../user/int_irq_handler/..\..\bsp\.\ir\..\test_adc_config.h:
+../user/int_irq_handler/..\..\bsp\.\adc\adc_base.h:
+../user/int_irq_handler/..\..\bsp\.\adc\..\test_adc_config.h:
 ../user/int_irq_handler/..\.\int_irq_handler\int_irq_handler.h:
 ../user/int_irq_handler/..\.\usart2_handler\usart2_handler.h:
 ../user/int_irq_handler/..\.\usart2_handler\..\system_defines.h:
 ../user/int_irq_handler/..\.\ir_handler\ir_handler.h:
 ../user/int_irq_handler/..\.\ir_handler\..\system_defines.h:
+../user/int_irq_handler/..\.\adc_handler\adc_handler.h:
+../user/int_irq_handler/..\.\adc_handler\..\system_defines.h:

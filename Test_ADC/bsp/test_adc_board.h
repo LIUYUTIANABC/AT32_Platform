@@ -19,6 +19,7 @@
 #include ".\usart\usart.h"
 #include ".\timestamp\timestamp.h"
 #include ".\ir\ir_base.h"
+#include ".\adc\adc_base.h"
 
 //----------------------------------------------------------------------------------
 // Define

@@ -1,52 +1,41 @@
 //----------------------------------------------------------------------------------
-// File Name: system_defines.h
-// Create Date: 2023-03-06 11:13:18
+// File Name: adc.base.h
+// Create Date: 2023-03-18 16:56:24
 // Developer: Rick Liu
 // Version: 1.0.0
 // Copyright: 2023. Dongguan Evolt Electronics Co., Ltd. All Rights Reserved
 // Comment:
 //----------------------------------------------------------------------------------
-#ifndef __SYSTEM_DEFINES_H
-#define __SYSTEM_DEFINES_H
+#ifndef __ADC_BASE_H
+#define __ADC_BASE_H
 
 //----------------------------------------------------------------------------------
 // Include file
 //----------------------------------------------------------------------------------
-#include "..\bsp\test_adc_board.h"
-#include ".\int_irq_handler\int_irq_handler.h"
-#include ".\usart2_handler\usart2_handler.h"
-#include ".\ir_handler\ir_handler.h"
-#include ".\adc_handler\adc_handler.h"
+#include "..\test_adc_config.h"
 
 //----------------------------------------------------------------------------------
-// Define
+// Define and config
 //----------------------------------------------------------------------------------
-#ifdef GLOBALS
-#define EXTERN
-#else
-#define EXTERN extern
-#endif
+#define ADC_INTERNAL_VREF_MV (1200)
+#define ADC_RESOLUTION (4096)
 
 //----------------------------------------------------------------------------------
 // enum; struct; union; typedef;
 //----------------------------------------------------------------------------------
-typedef __PACKED_STRUCT
+typedef __PACKED_UNION
 {
-    __PACKED_UNION
+    __IO uint8_t all;
+    __PACKED_STRUCT
     {
-        volatile uint32_t all;
-        __PACKED_STRUCT
-        {
-            volatile u32 timer2msFlag : 1;
-            volatile u32 reserved : 31; /* [31:1] */
-        } bits;
-    };
-} SystemFlags_T;
+        __IO uint8_t adcDmaCompleteFlag : 1;
+        __IO uint8_t reserved : 7; /* [7:1] */
+    } bits;
+} AdcFlags_T;
 
 //----------------------------------------------------------------------------------
 // Global variables
 //----------------------------------------------------------------------------------
-EXTERN SystemFlags_T g_tSystemFlags;
 
 //----------------------------------------------------------------------------------
 // Static variables (this file)
@@ -55,7 +44,10 @@ EXTERN SystemFlags_T g_tSystemFlags;
 //----------------------------------------------------------------------------------
 // Function prototypes
 //----------------------------------------------------------------------------------
+uint32_t GetAdcVerfVoltage_mV(void);
+uint32_t GetAdcLuxVoltage_mV(void);
+void AdcAverageProcess(void);
+void AdcDmaISR(void);
+void AdcLuxDmaInterruptInit(void);
 
 #endif
-
-/****************************** END OF FILE ***************************************/

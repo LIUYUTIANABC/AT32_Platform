@@ -1,52 +1,30 @@
 //----------------------------------------------------------------------------------
-// File Name: system_defines.h
-// Create Date: 2023-03-06 11:13:18
+// File Name: ir_handler.h
+// Create Date: 2023-04-01 09:40:56
 // Developer: Rick Liu
 // Version: 1.0.0
 // Copyright: 2023. Dongguan Evolt Electronics Co., Ltd. All Rights Reserved
 // Comment:
 //----------------------------------------------------------------------------------
-#ifndef __SYSTEM_DEFINES_H
-#define __SYSTEM_DEFINES_H
+#ifndef __ADC_HANDLER_H
+#define __ADC_HANDLER_H
 
 //----------------------------------------------------------------------------------
 // Include file
 //----------------------------------------------------------------------------------
-#include "..\bsp\test_adc_board.h"
-#include ".\int_irq_handler\int_irq_handler.h"
-#include ".\usart2_handler\usart2_handler.h"
-#include ".\ir_handler\ir_handler.h"
-#include ".\adc_handler\adc_handler.h"
+#include "..\system_defines.h"
 
 //----------------------------------------------------------------------------------
 // Define
 //----------------------------------------------------------------------------------
-#ifdef GLOBALS
-#define EXTERN
-#else
-#define EXTERN extern
-#endif
 
 //----------------------------------------------------------------------------------
 // enum; struct; union; typedef;
 //----------------------------------------------------------------------------------
-typedef __PACKED_STRUCT
-{
-    __PACKED_UNION
-    {
-        volatile uint32_t all;
-        __PACKED_STRUCT
-        {
-            volatile u32 timer2msFlag : 1;
-            volatile u32 reserved : 31; /* [31:1] */
-        } bits;
-    };
-} SystemFlags_T;
 
 //----------------------------------------------------------------------------------
 // Global variables
 //----------------------------------------------------------------------------------
-EXTERN SystemFlags_T g_tSystemFlags;
 
 //----------------------------------------------------------------------------------
 // Static variables (this file)
@@ -55,7 +33,6 @@ EXTERN SystemFlags_T g_tSystemFlags;
 //----------------------------------------------------------------------------------
 // Function prototypes
 //----------------------------------------------------------------------------------
+void AdcHandleGlobal(void);
 
 #endif
-
-/****************************** END OF FILE ***************************************/

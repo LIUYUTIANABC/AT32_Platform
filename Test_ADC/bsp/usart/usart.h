@@ -42,6 +42,7 @@ typedef enum
 {
     USART2_CMD_NONE = 0,
     USART2_CMD_QUERY_HELLO,
+    USART2_CMD_QUERY_ADC_LUX,
 } Usart2Command_E;
 
 typedef __PACKED_STRUCT

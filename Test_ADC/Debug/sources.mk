@@ -19,6 +19,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+bsp/adc \
 bsp \
 bsp/ir \
 bsp/key_board_base \
@@ -28,6 +29,7 @@ bsp/timestamp \
 bsp/usart \
 cmsis \
 firmware \
+user/adc_handler \
 user \
 user/int_irq_handler \
 user/ir_handler \

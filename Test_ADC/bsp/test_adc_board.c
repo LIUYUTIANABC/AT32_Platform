@@ -14,6 +14,7 @@
 static void OutputTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void InputTypeGpioPullUp(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void MuxTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel_type _gpio_mux);
+static void AnalogTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void SystemCycle2msTime6Init(void);
 
 //----------------------------------------------------------------------------------
@@ -39,6 +40,8 @@ void TestAdcBoardInit(void)
     crm_periph_clock_enable(PERIPH_USART2, TRUE);
     crm_periph_clock_enable(PERIPH_DMA1, TRUE);
     crm_periph_clock_enable(PERIPH_TIMER_17, TRUE);
+    crm_periph_clock_enable(PERIPH_ADC1, TRUE);
+    crm_adc_clock_div_set(ADC_CLOCK_DIV_20MHZ);    /* ADC clock is ( 120MHZ(SYS_CLK) / 6 = 20MHZ ) */
 
     //----------------------------------------------------------------------------------
     // NVIC group
@@ -51,6 +54,7 @@ void TestAdcBoardInit(void)
     InputTypeGpioPullUp(GPIOA_KEY_BOARD, GPIOA_PIN0_KEY_BOARD);
     MuxTypeGpioInit(GPIOA_USART2_TX, GPIOA_PIN2_USART2_TX, GPIOA_MUX_USART2_TX);
     MuxTypeGpioInit(GPIOA_USART2_RX, GPIOA_PIN3_USART2_RX, GPIOA_MUX_USART2_RX);
+    AnalogTypeGpioInit(GPIOA_ADC_LUX, GPIOA_PIN4_ANALOG_LUX);
     MuxTypeGpioInit(GPIOA_IR_RX, GPIOA_PIN7_IR_RX, GPIOA_MUX_IR_RX);
     OutputTypeGpioInit(GPIOA_LED_BLUE, GPIOA_PIN12_LED_BLUE);
 
@@ -77,6 +81,9 @@ void TestAdcBoardInit(void)
 
     /* Timer17 IR receive Init */
     IrReceiveTimer17Init();
+
+    /* ADC Lux and Vref channels init */
+    AdcLuxDmaInterruptInit();
 }
 
 //----------------------------------------------------------------------------------
@@ -177,6 +184,22 @@ static void MuxTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel
     case GPIO_PINS_15: gpio_pins_source = GPIO_PINS_SOURCE15; break;
     }
     gpio_pin_mux_config(_gpio_x, gpio_pins_source, _gpio_mux);
+}
+
+//----------------------------------------------------------------------------------
+// Function name: AnalogTypeGpioInit
+// Input:
+// Output:
+// Comment: Set GPIO is analog mode
+//----------------------------------------------------------------------------------
+static void AnalogTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin)
+{
+    gpio_init_type gpio_initstructure;
+
+    gpio_default_para_init(&gpio_initstructure);
+    gpio_initstructure.gpio_mode = GPIO_MODE_ANALOG;
+    gpio_initstructure.gpio_pins = _gpio_pin;
+    gpio_init(_gpio_x, &gpio_initstructure);
 }
 
 //----------------------------------------------------------------------------------

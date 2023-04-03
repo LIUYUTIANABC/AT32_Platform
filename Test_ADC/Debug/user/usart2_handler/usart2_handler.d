@@ -37,18 +37,22 @@ user/usart2_handler/usart2_handler.o: \
  ../user/usart2_handler/..\..\bsp\.\led_base\led_base.h \
  ../user/usart2_handler/..\..\bsp\.\led_base\..\test_adc_config.h \
  ../user/usart2_handler/..\..\bsp\.\key_board_base\key_board_base.h \
- ../user/usart2_handler/..\..\bsp\.\key_board_base\..\test_adc_config.h \
+ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h \
  ../user/usart2_handler/..\..\bsp\.\usart\usart.h \
  ../user/usart2_handler/..\..\bsp\.\usart\..\test_adc_config.h \
  ../user/usart2_handler/..\..\bsp\.\timestamp\timestamp.h \
- ../user/usart2_handler/..\..\bsp\.\timestamp\..\test_adc_config.h \
+ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h \
  ../user/usart2_handler/..\..\bsp\.\ir\ir_base.h \
  ../user/usart2_handler/..\..\bsp\.\ir\..\test_adc_config.h \
+ ../user/usart2_handler/..\..\bsp\.\adc\adc_base.h \
+ ../user/usart2_handler/..\..\bsp\.\adc\..\test_adc_config.h \
  ../user/usart2_handler/..\.\int_irq_handler\int_irq_handler.h \
  ../user/usart2_handler/..\.\int_irq_handler\..\system_defines.h \
  ../user/usart2_handler/..\.\usart2_handler\usart2_handler.h \
  ../user/usart2_handler/..\.\ir_handler\ir_handler.h \
- ../user/usart2_handler/..\.\ir_handler\..\system_defines.h
+ ../user/usart2_handler/..\.\ir_handler\..\system_defines.h \
+ ../user/usart2_handler/..\.\adc_handler\adc_handler.h \
+ ../user/usart2_handler/..\.\adc_handler\..\system_defines.h
 ../user/usart2_handler/usart2_handler.h:
 ../user/usart2_handler/..\system_defines.h:
 ../user/usart2_handler/..\..\bsp\test_adc_board.h:
@@ -86,15 +90,19 @@ user/usart2_handler/usart2_handler.o: \
 ../user/usart2_handler/..\..\bsp\.\led_base\led_base.h:
 ../user/usart2_handler/..\..\bsp\.\led_base\..\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\key_board_base\key_board_base.h:
-../user/usart2_handler/..\..\bsp\.\key_board_base\..\test_adc_config.h:
+c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\usart\usart.h:
 ../user/usart2_handler/..\..\bsp\.\usart\..\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\timestamp\timestamp.h:
-../user/usart2_handler/..\..\bsp\.\timestamp\..\test_adc_config.h:
+c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\ir\ir_base.h:
 ../user/usart2_handler/..\..\bsp\.\ir\..\test_adc_config.h:
+../user/usart2_handler/..\..\bsp\.\adc\adc_base.h:
+../user/usart2_handler/..\..\bsp\.\adc\..\test_adc_config.h:
 ../user/usart2_handler/..\.\int_irq_handler\int_irq_handler.h:
 ../user/usart2_handler/..\.\int_irq_handler\..\system_defines.h:
 ../user/usart2_handler/..\.\usart2_handler\usart2_handler.h:
 ../user/usart2_handler/..\.\ir_handler\ir_handler.h:
 ../user/usart2_handler/..\.\ir_handler\..\system_defines.h:
+../user/usart2_handler/..\.\adc_handler\adc_handler.h:
+../user/usart2_handler/..\.\adc_handler\..\system_defines.h:

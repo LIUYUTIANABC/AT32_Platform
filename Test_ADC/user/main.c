@@ -155,6 +155,7 @@ int main(void)
     while (g_tSystemFlags.bits.timer2msFlag == 0)
     {
         // ADC or power saving here?
+        AdcAverageProcess();
     }
     g_tSystemFlags.bits.timer2msFlag = 0;
     // LedRedOn();
@@ -185,6 +186,7 @@ int main(void)
     }
     Usart2HandleGlobal();
     IrHandleGlobal();
+    AdcHandleGlobal();
   }
 }
 

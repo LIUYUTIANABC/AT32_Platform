@@ -24,10 +24,25 @@ void TMR6_GLOBAL_IRQHandler(void)
 }
 
 //----------------------------------------------------------------------------------
-// Function name: TMR6_GLOBAL_IRQHandler
+// Function name: DMA1_Channel1_IRQHandler
 // Input:
 // Output:
-// Comment: Timer 6 interrupt handler
+// Comment: ADC interrupt handler
+//----------------------------------------------------------------------------------
+void DMA1_Channel1_IRQHandler(void)
+{
+    if(dma_flag_get(DMA1_FDT1_FLAG) != RESET)
+    {
+        dma_flag_clear(DMA1_FDT1_FLAG);
+        AdcDmaISR();
+    }
+}
+
+//----------------------------------------------------------------------------------
+// Function name: DMA1_Channel5_4_IRQHandler
+// Input:
+// Output:
+// Comment: USART send interrupt handler
 //----------------------------------------------------------------------------------
 void DMA1_Channel5_4_IRQHandler(void)
 {

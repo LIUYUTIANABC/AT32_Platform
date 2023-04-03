@@ -54,5 +54,4 @@ void Usart2HandleGlobal(void)
 		Usart2Send(s_tUsartTxPacket);
 	}
     Usart2ReceiveCmd();
-
 }

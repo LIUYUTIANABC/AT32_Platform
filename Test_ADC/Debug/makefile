@@ -11,6 +11,7 @@ RM := rm -rf
 -include user/usart2_handler/subdir.mk
 -include user/ir_handler/subdir.mk
 -include user/int_irq_handler/subdir.mk
+-include user/adc_handler/subdir.mk
 -include user/subdir.mk
 -include firmware/subdir.mk
 -include cmsis/subdir.mk
@@ -20,6 +21,7 @@ RM := rm -rf
 -include bsp/led_base/subdir.mk
 -include bsp/key_board_base/subdir.mk
 -include bsp/ir/subdir.mk
+-include bsp/adc/subdir.mk
 -include bsp/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -70,7 +72,7 @@ main-build: Test_ADC.elf secondary-outputs
 Test_ADC.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU Arm Cross C Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -ffunction-sections  -g -T "C:\Users\rick.liu\AT32_eclipse-workspace\Test_ADC/ldscripts/AT32F421x8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"Test_ADC.map" --specs=nano.specs --specs=nosys.specs -o "Test_ADC.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -ffunction-sections  -g -T "C:\U_files\Git_Repo\AT32_Platform\Test_ADC/ldscripts/AT32F421x8_FLASH.ld" -Xlinker --gc-sections -Wl,-Map,"Test_ADC.map" --specs=nano.specs --specs=nosys.specs -o "Test_ADC.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
