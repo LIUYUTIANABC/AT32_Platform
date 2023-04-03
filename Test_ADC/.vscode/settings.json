@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "at32f421.h": "c",
+        "led_base.h": "c",
+        "system_defines.h": "c"
+    }
+}
