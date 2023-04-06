@@ -14,6 +14,7 @@
 static void OutputTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void InputTypeGpioPullUp(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void MuxTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel_type _gpio_mux);
+static void MuxTypeOutputOpenDrainInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel_type _gpio_mux);
 static void AnalogTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin);
 static void SystemCycle2msTime6Init(void);
 
@@ -35,6 +36,7 @@ void TestAdcBoardInit(void)
     // peripheral clock Init
     //----------------------------------------------------------------------------------
     crm_periph_clock_enable(PERIPH_GPIOA, TRUE);
+    crm_periph_clock_enable(PERIPH_GPIOB, TRUE);
     crm_periph_clock_enable(PERIPH_GPIOF, TRUE);
     crm_periph_clock_enable(PERIPH_TIMER_6, TRUE);
     crm_periph_clock_enable(PERIPH_USART2, TRUE);
@@ -42,6 +44,7 @@ void TestAdcBoardInit(void)
     crm_periph_clock_enable(PERIPH_TIMER_17, TRUE);
     crm_periph_clock_enable(PERIPH_ADC1, TRUE);
     crm_adc_clock_div_set(ADC_CLOCK_DIV_20MHZ);    /* ADC clock is ( 120MHZ(SYS_CLK) / 6 = 20MHZ ) */
+    crm_periph_clock_enable(PERIPH_I2C2, TRUE);
 
     //----------------------------------------------------------------------------------
     // NVIC group
@@ -61,7 +64,8 @@ void TestAdcBoardInit(void)
     //----------------------------------------------------------------------------------
     // PORT B Init
     //----------------------------------------------------------------------------------
-    // OutputTypeGpioInit(GPIOB_LED4, GPIOB_PIN11_LED4);
+    MuxTypeOutputOpenDrainInit(GPIOB_M24C16_SCL, GPIOB_PIN10_M24C16_SCL_PIN, GPIOB_MUX_M24C16_SCL);
+    MuxTypeOutputOpenDrainInit(GPIOB_M24C16_SDA, GPIOB_PIN11_M24C16_SDA_PIN, GPIOB_MUX_M24C16_SDA);
 
     //----------------------------------------------------------------------------------
     // PORT F Init
@@ -84,6 +88,9 @@ void TestAdcBoardInit(void)
 
     /* ADC Lux and Vref channels init */
     AdcLuxDmaInterruptInit();
+
+    /* M24C16 and I2C init */
+    m24c16_Init();
 }
 
 //----------------------------------------------------------------------------------
@@ -161,6 +168,51 @@ static void MuxTypeGpioInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel
     gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
     gpio_init_struct.gpio_pins = _gpio_pin;
     gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+    gpio_init(_gpio_x, &gpio_init_struct);
+
+    /* config iomux */
+    switch(_gpio_pin)
+    {
+    case GPIO_PINS_0: gpio_pins_source = GPIO_PINS_SOURCE0; break;
+    case GPIO_PINS_1: gpio_pins_source = GPIO_PINS_SOURCE1; break;
+    case GPIO_PINS_2: gpio_pins_source = GPIO_PINS_SOURCE2; break;
+    case GPIO_PINS_3: gpio_pins_source = GPIO_PINS_SOURCE3; break;
+    case GPIO_PINS_4: gpio_pins_source = GPIO_PINS_SOURCE4; break;
+    case GPIO_PINS_5: gpio_pins_source = GPIO_PINS_SOURCE5; break;
+    case GPIO_PINS_6: gpio_pins_source = GPIO_PINS_SOURCE6; break;
+    case GPIO_PINS_7: gpio_pins_source = GPIO_PINS_SOURCE7; break;
+    case GPIO_PINS_8: gpio_pins_source = GPIO_PINS_SOURCE8; break;
+    case GPIO_PINS_9: gpio_pins_source = GPIO_PINS_SOURCE9; break;
+    case GPIO_PINS_10: gpio_pins_source = GPIO_PINS_SOURCE10; break;
+    case GPIO_PINS_11: gpio_pins_source = GPIO_PINS_SOURCE11; break;
+    case GPIO_PINS_12: gpio_pins_source = GPIO_PINS_SOURCE12; break;
+    case GPIO_PINS_13: gpio_pins_source = GPIO_PINS_SOURCE13; break;
+    case GPIO_PINS_14: gpio_pins_source = GPIO_PINS_SOURCE14; break;
+    case GPIO_PINS_15: gpio_pins_source = GPIO_PINS_SOURCE15; break;
+    }
+    gpio_pin_mux_config(_gpio_x, gpio_pins_source, _gpio_mux);
+}
+
+//----------------------------------------------------------------------------------
+// Function name: OutputOpenDrainTypeInit
+// Input:
+// Output:
+// Comment: Used on the I2C bus or in other bus
+//----------------------------------------------------------------------------------
+static void MuxTypeOutputOpenDrainInit(gpio_type *_gpio_x, uint32_t _gpio_pin, gpio_mux_sel_type _gpio_mux)
+{
+    gpio_init_type gpio_init_struct;
+    gpio_pins_source_type gpio_pins_source;
+
+    /* set default parameter */
+    gpio_default_para_init(&gpio_init_struct);
+
+    /* gpio configuration */
+    gpio_init_struct.gpio_out_type       = GPIO_OUTPUT_OPEN_DRAIN;
+    gpio_init_struct.gpio_pull           = GPIO_PULL_UP;
+    gpio_init_struct.gpio_mode           = GPIO_MODE_MUX;
+    gpio_init_struct.gpio_pins           = _gpio_pin;
+    gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
     gpio_init(_gpio_x, &gpio_init_struct);
 
     /* config iomux */

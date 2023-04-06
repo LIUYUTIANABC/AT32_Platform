@@ -1,60 +1,46 @@
 //----------------------------------------------------------------------------------
-// File Name: usart.h
-// Create Date: 2023-03-07 15:24:01
+// File Name: i2c_core.h
+// Create Date: 2023-02-03 15:48:17
 // Developer: Rick Liu
 // Version: 1.0.0
 // Copyright: 2023. Dongguan Evolt Electronics Co., Ltd. All Rights Reserved
 // Comment:
 //----------------------------------------------------------------------------------
-#ifndef __USART_H
-#define __USART_H
+#ifndef __I2C_CORE_H
+#define __I2C_CORE_H
 
 //----------------------------------------------------------------------------------
 // Include file
 //----------------------------------------------------------------------------------
-#include "..\test_adc_config.h"
+#include "stdio.h"
+#include "at32f421.h"
 
 //----------------------------------------------------------------------------------
 // Define
 //----------------------------------------------------------------------------------
-#define USART2_PACKET_SIZE 8
-#define USART2_PACKET_START_BYTE 0x55
-#define USART2_PACKET_END_BYTE 0xAA
+#define I2C_TIMEOUT                      0x3FF // waiting 8us
+#define I2Cx_OWN_ADDRESS                 0x50
 
 //----------------------------------------------------------------------------------
 // enum; struct; union; typedef;
 //----------------------------------------------------------------------------------
-typedef __PACKED_STRUCT
-{
-    __PACKED_UNION
-    {
-        volatile uint8_t all;
-        __PACKED_STRUCT
-        {
-            volatile uint8_t usart2TxDmaCompleteFlag : 1;
-            volatile uint8_t usart2RxCompleteFlag : 1;
-            volatile uint8_t reserved : 6; /* [7:1] */
-        } bits;
-    };
-} Usart2Flags_T;
-
 typedef enum
 {
-    USART2_CMD_NONE = 0,
-    USART2_CMD_QUERY_HELLO,
-    USART2_CMD_QUERY_ADC_LUX,
-    USART2_CMD_QUERY_M24C16_READ,
-    USART2_CMD_QUERY_M24C16_WRITE,
-} Usart2Command_E;
+  I2C_OK = 0,          /*!< no error */
+  I2C_ERR_BUSY,        /*!< busy error> */
+  I2C_ERR_START,       /*!< start error */
+  I2C_ERR_ADDR,        /*!< addr error */
+  I2C_ERR_DATA,        /*!< data error */
+  I2C_ERR_TIMEOUT,     /*!< timeout error */
+} i2c_status_type;
 
-typedef __PACKED_STRUCT
+typedef struct
 {
-    volatile Usart2Command_E eCommand;
-    volatile uint8_t u8Data3;
-    volatile uint8_t u8Data2;
-    volatile uint8_t u8Data1;
-    volatile uint8_t u8Data0;
-} Usart2Packet_T;
+  i2c_type                          *i2cx;                  /*!< i2c registers base address      */
+  uint8_t                           msb_addr;
+  uint8_t                           lsb_addr;
+  uint8_t                           data;
+} i2c_handle_type;
 
 //----------------------------------------------------------------------------------
 // Global variables
@@ -67,10 +53,10 @@ typedef __PACKED_STRUCT
 //----------------------------------------------------------------------------------
 // Function prototypes
 //----------------------------------------------------------------------------------
-void Usart2DmaInterruptInit(uint32_t _baud_rate);
-void Usart2Send(Usart2Packet_T _t_packet);
-Usart2Packet_T Usart2Receive(void);
-void Usart2TxDmaISR(void);
-void Usart2RxIntIdleISR(void);
+void i2cCoreInit(i2c_type *_i2c_port, uint32_t _i2c_speed);
+i2c_status_type i2cWriteByte(i2c_handle_type *_hi2c);
+i2c_status_type i2cReadByte(i2c_handle_type *_hi2c);
 
 #endif
+
+/****************************** END OF FILE ***************************************/

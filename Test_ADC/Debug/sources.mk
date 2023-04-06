@@ -21,6 +21,7 @@ C_DEPS :=
 SUBDIRS := \
 bsp/adc \
 bsp \
+bsp/eeprom \
 bsp/ir \
 bsp/key_board_base \
 bsp/led_base \
@@ -33,5 +34,6 @@ user/adc_handler \
 user \
 user/int_irq_handler \
 user/ir_handler \
+user/m24c16_handler \
 user/usart2_handler \
 

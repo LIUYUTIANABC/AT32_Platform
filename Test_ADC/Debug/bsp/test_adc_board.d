@@ -35,7 +35,8 @@ bsp/test_adc_board.o: ../bsp/test_adc_board.c ../bsp/test_adc_board.h \
  ../bsp/.\usart\..\test_adc_config.h ../bsp/.\timestamp\timestamp.h \
  ../bsp/.\timestamp\..\test_adc_config.h ../bsp/.\ir\ir_base.h \
  ../bsp/.\ir\..\test_adc_config.h ../bsp/.\adc\adc_base.h \
- ../bsp/.\adc\..\test_adc_config.h
+ ../bsp/.\adc\..\test_adc_config.h ../bsp/.\eeprom\m24c16_api.h \
+ ../bsp/.\eeprom\i2c_core.h ../bsp/.\eeprom\..\test_adc_config.h
 ../bsp/test_adc_board.h:
 ../bsp/test_adc_config.h:
 ../include/libraries/cmsis/cm4/device_support/at32f421.h:
@@ -80,3 +81,6 @@ bsp/test_adc_board.o: ../bsp/test_adc_board.c ../bsp/test_adc_board.h \
 ../bsp/.\ir\..\test_adc_config.h:
 ../bsp/.\adc\adc_base.h:
 ../bsp/.\adc\..\test_adc_config.h:
+../bsp/.\eeprom\m24c16_api.h:
+../bsp/.\eeprom\i2c_core.h:
+../bsp/.\eeprom\..\test_adc_config.h:

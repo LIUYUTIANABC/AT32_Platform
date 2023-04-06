@@ -187,5 +187,6 @@ int main(void)
     Usart2HandleGlobal();
     IrHandleGlobal();
     AdcHandleGlobal();
+    M24C16_HandleGlobal();
   }
 }

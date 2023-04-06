@@ -17,6 +17,7 @@
 #include ".\usart2_handler\usart2_handler.h"
 #include ".\ir_handler\ir_handler.h"
 #include ".\adc_handler\adc_handler.h"
+#include ".\m24c16_handler\m24c16_handler.h"
 
 //----------------------------------------------------------------------------------
 // Define

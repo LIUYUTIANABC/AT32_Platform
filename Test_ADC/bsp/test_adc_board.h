@@ -20,6 +20,7 @@
 #include ".\timestamp\timestamp.h"
 #include ".\ir\ir_base.h"
 #include ".\adc\adc_base.h"
+#include ".\eeprom\m24c16_api.h"
 
 //----------------------------------------------------------------------------------
 // Define

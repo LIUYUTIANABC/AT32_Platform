@@ -9,6 +9,7 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include user/usart2_handler/subdir.mk
+-include user/m24c16_handler/subdir.mk
 -include user/ir_handler/subdir.mk
 -include user/int_irq_handler/subdir.mk
 -include user/adc_handler/subdir.mk
@@ -21,6 +22,7 @@ RM := rm -rf
 -include bsp/led_base/subdir.mk
 -include bsp/key_board_base/subdir.mk
 -include bsp/ir/subdir.mk
+-include bsp/eeprom/subdir.mk
 -include bsp/adc/subdir.mk
 -include bsp/subdir.mk
 -include subdir.mk

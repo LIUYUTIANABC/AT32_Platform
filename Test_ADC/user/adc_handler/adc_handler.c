@@ -25,7 +25,7 @@ void AdcHandleGlobal(void)
     voltage1 = GetAdcLuxVoltage_mV();
 
     counter++;
-    if(counter > 1000)
+    if(counter > 1500)
     {
     	counter = 0;
         packet.eCommand = USART2_CMD_QUERY_ADC_LUX;

@@ -28,13 +28,14 @@
 * which peripheral you used
 */
 #define PERIPH_GPIOA     CRM_GPIOA_PERIPH_CLOCK
-// #define PERIPH_GPIOB  CRM_GPIOB_PERIPH_CLOCK
+#define PERIPH_GPIOB     CRM_GPIOB_PERIPH_CLOCK
 #define PERIPH_GPIOF     CRM_GPIOF_PERIPH_CLOCK
 #define PERIPH_TIMER_6   CRM_TMR6_PERIPH_CLOCK
 #define PERIPH_USART2    CRM_USART2_PERIPH_CLOCK
 #define PERIPH_DMA1      CRM_DMA1_PERIPH_CLOCK
 #define PERIPH_TIMER_17  CRM_TMR17_PERIPH_CLOCK
 #define PERIPH_ADC1      CRM_ADC1_PERIPH_CLOCK
+#define PERIPH_I2C2      CRM_I2C2_PERIPH_CLOCK
 
 /*
 * NVIC_PRIORITY_GROUP_4; it is no priority_sub
@@ -68,8 +69,12 @@
 /*
 * GPIOB Map
 */
-// #define GPIOB_PIN11_LED4                  GPIO_PINS_11
-// #define GPIOB_LED4                        GPIOB
+#define GPIOB_PIN10_M24C16_SCL_PIN        GPIO_PINS_10
+#define GPIOB_MUX_M24C16_SCL              GPIO_MUX_1
+#define GPIOB_M24C16_SCL                  GPIOB
+#define GPIOB_PIN11_M24C16_SDA_PIN        GPIO_PINS_11
+#define GPIOB_MUX_M24C16_SDA              GPIO_MUX_1
+#define GPIOB_M24C16_SDA                  GPIOB
 
 /*
 * GPIOF Map
@@ -102,10 +107,18 @@
 */
 #define ADC_DMA_MODE_ENABLE
 #define ADC_TRIGGER_SOFTWARE
-#define ADC_CLOCK_DIV_20MHZ CRM_ADC_DIV_6
-#define ADC_CHANNEL_VREF ADC_CHANNEL_17
-#define ADC_CHANNEL_LUX ADC_CHANNEL_4
-#define ADC_CHANNEL_LENGTH 2
+#define ADC_CLOCK_DIV_20MHZ             CRM_ADC_DIV_6
+#define ADC_CHANNEL_VREF                ADC_CHANNEL_17
+#define ADC_CHANNEL_LUX                 ADC_CHANNEL_4
+#define ADC_CHANNEL_LENGTH              2
+
+/*
+* M24C16 use I2C communictaion configure
+*/
+#define M24C16_I2C_SPEED                 100000
+#define M24C16_I2C_ADDRESS               0xA0
+#define M24C16_I2Cx_PORT                 I2C2
+#define M24C16_ADDR_BYTE_MAX             0x7FF
 
 //----------------------------------------------------------------------------------
 // enum; struct; union; typedef;

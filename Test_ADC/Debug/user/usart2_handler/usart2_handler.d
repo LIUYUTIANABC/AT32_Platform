@@ -46,13 +46,18 @@ user/usart2_handler/usart2_handler.o: \
  ../user/usart2_handler/..\..\bsp\.\ir\..\test_adc_config.h \
  ../user/usart2_handler/..\..\bsp\.\adc\adc_base.h \
  ../user/usart2_handler/..\..\bsp\.\adc\..\test_adc_config.h \
+ ../user/usart2_handler/..\..\bsp\.\eeprom\m24c16_api.h \
+ ../user/usart2_handler/..\..\bsp\.\eeprom\i2c_core.h \
+ ../user/usart2_handler/..\..\bsp\.\eeprom\..\test_adc_config.h \
  ../user/usart2_handler/..\.\int_irq_handler\int_irq_handler.h \
  ../user/usart2_handler/..\.\int_irq_handler\..\system_defines.h \
  ../user/usart2_handler/..\.\usart2_handler\usart2_handler.h \
  ../user/usart2_handler/..\.\ir_handler\ir_handler.h \
  ../user/usart2_handler/..\.\ir_handler\..\system_defines.h \
  ../user/usart2_handler/..\.\adc_handler\adc_handler.h \
- ../user/usart2_handler/..\.\adc_handler\..\system_defines.h
+ ../user/usart2_handler/..\.\adc_handler\..\system_defines.h \
+ ../user/usart2_handler/..\.\m24c16_handler\m24c16_handler.h \
+ ../user/usart2_handler/..\.\m24c16_handler\..\system_defines.h
 ../user/usart2_handler/usart2_handler.h:
 ../user/usart2_handler/..\system_defines.h:
 ../user/usart2_handler/..\..\bsp\test_adc_board.h:
@@ -99,6 +104,9 @@ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\ir\..\test_adc_config.h:
 ../user/usart2_handler/..\..\bsp\.\adc\adc_base.h:
 ../user/usart2_handler/..\..\bsp\.\adc\..\test_adc_config.h:
+../user/usart2_handler/..\..\bsp\.\eeprom\m24c16_api.h:
+../user/usart2_handler/..\..\bsp\.\eeprom\i2c_core.h:
+../user/usart2_handler/..\..\bsp\.\eeprom\..\test_adc_config.h:
 ../user/usart2_handler/..\.\int_irq_handler\int_irq_handler.h:
 ../user/usart2_handler/..\.\int_irq_handler\..\system_defines.h:
 ../user/usart2_handler/..\.\usart2_handler\usart2_handler.h:
@@ -106,3 +114,5 @@ c:\u_files\git_repo\at32_platform\test_adc\bsp\test_adc_config.h:
 ../user/usart2_handler/..\.\ir_handler\..\system_defines.h:
 ../user/usart2_handler/..\.\adc_handler\adc_handler.h:
 ../user/usart2_handler/..\.\adc_handler\..\system_defines.h:
+../user/usart2_handler/..\.\m24c16_handler\m24c16_handler.h:
+../user/usart2_handler/..\.\m24c16_handler\..\system_defines.h:

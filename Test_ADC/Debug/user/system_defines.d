@@ -41,6 +41,8 @@ user/system_defines.o: ../user/system_defines.c ../user/system_defines.h \
  ../user/..\bsp\.\ir\ir_base.h ../user/..\bsp\.\ir\..\test_adc_config.h \
  ../user/..\bsp\.\adc\adc_base.h \
  ../user/..\bsp\.\adc\..\test_adc_config.h \
+ ../user/..\bsp\.\eeprom\m24c16_api.h ../user/..\bsp\.\eeprom\i2c_core.h \
+ ../user/..\bsp\.\eeprom\..\test_adc_config.h \
  ../user/.\int_irq_handler\int_irq_handler.h \
  ../user/.\int_irq_handler\..\system_defines.h \
  ../user/.\usart2_handler\usart2_handler.h \
@@ -48,7 +50,9 @@ user/system_defines.o: ../user/system_defines.c ../user/system_defines.h \
  ../user/.\ir_handler\ir_handler.h \
  ../user/.\ir_handler\..\system_defines.h \
  ../user/.\adc_handler\adc_handler.h \
- ../user/.\adc_handler\..\system_defines.h
+ ../user/.\adc_handler\..\system_defines.h \
+ ../user/.\m24c16_handler\m24c16_handler.h \
+ ../user/.\m24c16_handler\..\system_defines.h
 ../user/system_defines.h:
 ../user/..\bsp\test_adc_board.h:
 ../user/..\bsp\test_adc_config.h:
@@ -94,6 +98,9 @@ user/system_defines.o: ../user/system_defines.c ../user/system_defines.h \
 ../user/..\bsp\.\ir\..\test_adc_config.h:
 ../user/..\bsp\.\adc\adc_base.h:
 ../user/..\bsp\.\adc\..\test_adc_config.h:
+../user/..\bsp\.\eeprom\m24c16_api.h:
+../user/..\bsp\.\eeprom\i2c_core.h:
+../user/..\bsp\.\eeprom\..\test_adc_config.h:
 ../user/.\int_irq_handler\int_irq_handler.h:
 ../user/.\int_irq_handler\..\system_defines.h:
 ../user/.\usart2_handler\usart2_handler.h:
@@ -102,3 +109,5 @@ user/system_defines.o: ../user/system_defines.c ../user/system_defines.h \
 ../user/.\ir_handler\..\system_defines.h:
 ../user/.\adc_handler\adc_handler.h:
 ../user/.\adc_handler\..\system_defines.h:
+../user/.\m24c16_handler\m24c16_handler.h:
+../user/.\m24c16_handler\..\system_defines.h:
